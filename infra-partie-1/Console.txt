@@ -1,0 +1,89 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. Tous droits réservés.
+
+Installez la dernière version de PowerShell pour de nouvelles fonctionnalités et améliorations ! https://aka.ms/PSWindows
+
+PS C:\Users\Lisa\Documents\MAALSI\Julien Grade\JG-InfraSI\infra-partie-1> docker compose up -d
+empty compose file
+PS C:\Users\Lisa\Documents\MAALSI\Julien Grade\JG-InfraSI\infra-partie-1> docker compose up -d
+empty compose file
+PS C:\Users\Lisa\Documents\MAALSI\Julien Grade\JG-InfraSI\infra-partie-1> docker compose up -d
+time="2026-01-12T11:42:23+01:00" level=warning msg="C:\\Users\\Lisa\\Documents\\MAALSI\\Julien Grade\\JG-InfraSI\\infra-partie-1\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+[+] Running 11/11
+ ✔ mongo Pulled                                                                                                   89.6s
+   ✔ d0fc8d2469ec Pull complete                                                                                   21.0s
+   ✔ a4c2e1a296a6 Pull complete                                                                                    0.8s
+   ✔ 47c219b2d4f5 Pull complete                                                                                    0.5s
+   ✔ 929ce23bedbe Pull complete                                                                                   21.1s
+   ✔ 487128c0e848 Pull complete                                                                                    0.8s
+   ✔ d7381d7512ed Pull complete                                                                                   86.2s
+   ✔ 7e49dc6156b0 Pull complete                                                                                   20.3s
+   ✔ a4867e714827 Pull complete                                                                                   20.8s
+   ✔ 9e481d538c40 Download complete                                                                                0.0s
+   ✔ fe1da9a13d38 Download complete                                                                                2.1s
+[+] Running 2/2
+ ✔ Network infra-partie-1_default  Created                                                                         0.2s
+ ✔ Container mongo                 Started                                                                         2.4s
+PS C:\Users\Lisa\Documents\MAALSI\Julien Grade\JG-InfraSI\infra-partie-1> docker exec -it mongo mongosh -u root -p 123
+Current Mongosh Log ID: 6964d08fb4f25cd8fe8de665
+Connecting to:          mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.10
+MongoServerSelectionError: Server selection timed out after 2000 ms
+PS C:\Users\Lisa\Documents\MAALSI\Julien Grade\JG-InfraSI\infra-partie-1> docker exec -it mongo mongosh -u root -p 123
+Current Mongosh Log ID: 6964d0a76f7a4430ed8de665
+Connecting to:          mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.10
+MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017
+PS C:\Users\Lisa\Documents\MAALSI\Julien Grade\JG-InfraSI\infra-partie-1> docker exec -it mongo mongosh -u root -p 123
+
+Current Mongosh Log ID: 6964d14a7e9b8174408de665
+Connecting to:          mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.10
+
+Using MongoDB:          7.0.28
+Using Mongosh:          2.5.10
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+------
+   The server generated these startup warnings when booting
+   2026-01-12T10:45:06.341+00:00: vm.max_map_count is too low
+------
+
+test>
+
+test>
+
+test> use myapp
+switched to db myapp
+myapp> db.createCollection("users")
+{ ok: 1 }
+myapp> db.users.insertOne({ name: "Alice" })
+{
+  acknowledged: true,
+  insertedId: ObjectId('6964d1947e9b8174408de666')
+}
+myapp> show dbs
+admin   100.00 KiB
+config   12.00 KiB
+local    72.00 KiB
+myapp     8.00 KiB
+myapp> show collections
+users
+myapp> mongodb://nom-utilisateur:password@localhost:27017/admin
+... mongodb://root:123@localhost:27017/admin
+... 3
+Uncaught:
+SyntaxError: Label 'mongodb' is already declared. (2:0)
+
+  1 | mongodb://nom-utilisateur:password@localhost:27017/admin
+> 2 | mongodb://root:123@localhost:27017/admin
+    | ^
+  3 | 3
+  4 |
+
+myapp> mongodb://root:123@localhost:27017/admin
+... 3
+3
+myapp>
