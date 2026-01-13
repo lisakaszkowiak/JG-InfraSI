@@ -1,2 +1,2 @@
-terraform.tfstate
+terraform.tfstate*
 /infra-partie-1/db_data
